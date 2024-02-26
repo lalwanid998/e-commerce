@@ -1,14 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { AppProvider } from "./context/productcontext";
+import { FilterContextProvider } from "./context/filter_context";
+import { CartProvider } from "./context/cart_context";
+import { Auth0Provider } from '@auth0/auth0-react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Auth0Provider
+    domain="dev-qyic0kqyg8syg86e.us.auth0.com"
+    clientId="6o1jukjbnXDxChG42SPfNFTL4XpekzEB"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}>
+  <AppProvider>
+    <FilterContextProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </FilterContextProvider>
+  </AppProvider>
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
