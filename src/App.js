@@ -38,8 +38,8 @@ const theme = {
   },
 };
   return (
-    <ThemeProvider theme={theme} basename="e-commerce">
-      <Router>
+    <ThemeProvider theme={theme}>
+      <Router basename="e-commerce">
         <GlobalStyle />
         <Header />
           <Routes>
