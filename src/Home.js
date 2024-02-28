@@ -12,7 +12,7 @@ const data = {
 
   return (
   <>
-  <HeroSection myData={data}/>{" "}
+  <HeroSection myData={data}/>
   <FeatureProduct />
   <Services />
   <Trusted />
@@ -21,4 +21,4 @@ const data = {
   )
 };
 
-export default Home;
+export default Home
